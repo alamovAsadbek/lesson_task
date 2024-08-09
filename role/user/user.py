@@ -14,7 +14,8 @@ class User:
             summ = 0
             all_balance = balance_manager.read()
             for balance in all_balance:
-                summ += balance
+                if balance['phone_number'] == self.active_user['phone_number']:
+                    summ += balance['balance']
             return summ
         except KeyError:
             return 0
