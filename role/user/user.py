@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from main_files.decorator_func import log_decorator
-from main_files.json_manager import user_manager, balance_manager
+from main_files.json_manager import user_manager, balance_manager, product_manager
 
 
 class User:
@@ -26,15 +26,29 @@ class User:
             return False
 
     @log_decorator
+    def balance_price(self, balance: int) -> int or bool:
+        try:
+            all_product = product_manager.read()
+            for product in all_product:
+                if product['beginning'] <= balance <= product['ending']:
+                    return product['price']
+            return 0
+        except Exception as e:
+            print(f'Error: {e}')
+            return 0
+
+    @log_decorator
     def add_balance(self) -> bool:
         try:
             print(f'Your balance is {self.summ_count()}')
             balance: int = int(input("Enter balance: "))
-            balance_id = balance_manager.random_id()
+            balance_id: int = balance_manager.random_id()
+            product_price = self.balance_price(balance)
             data = {
                 'id': balance_id,
                 'balance': balance,
                 'phone_number': self.active_user['phone_number'],
+                'price': product_price,
                 'create_data': datetime.now().strftime("%d/%m/%Y %H:%M:%S").__str__()
             }
             if balance_manager.append_data(data=data):

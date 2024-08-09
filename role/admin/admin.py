@@ -14,6 +14,12 @@ class Admin:
             all_product: list = product_manager.read()
             is_there = False
             beginning: int = int(input("The beginning: "))
+            while True:
+                if beginning < 1:
+                    print("Number cannot be less than 1, Please try again.")
+                    beginning = int(input("The beginning: "))
+                    continue
+                break
             ending: int = int(input("The ending: "))
             price: int = int(input("The price: "))
             for product in all_product:

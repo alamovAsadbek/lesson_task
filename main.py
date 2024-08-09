@@ -1,5 +1,6 @@
 from main_files.auth import Auth
 from main_files.decorator_func import log_decorator
+from role.admin.admin import Admin
 from role.user.user import User
 
 
@@ -92,9 +93,11 @@ def show_admin_menu():
     '''
     print(text)
     try:
+        admin = Admin()
         user_menu = int(input("Choose menu number: "))
         if user_menu == 1:
-            pass
+            admin.pricing()
+            show_admin_menu()
         elif user_menu == 2:
             pass
         elif user_menu == 3:
