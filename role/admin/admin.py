@@ -9,7 +9,7 @@ class Admin:
         self.create_data = datetime.now().strftime('%Y-%m-%d %H:%M:%S').__str__()
 
     @log_decorator
-    def pricing(self):
+    def pricing(self) -> bool:
         try:
             all_product: list = product_manager.read()
             is_there = False
@@ -34,7 +34,8 @@ class Admin:
                 if product_manager.append_data(data=data):
                     print('Product Added Successfully!')
                     return True
-
+                print("Product Added Failed")
+                return False
             if product_manager.write(data=all_product):
                 print("Product Added Successfully")
                 return True

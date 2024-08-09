@@ -9,7 +9,7 @@ class User:
         self.active_user = user_manager.get_active_user()
 
     @log_decorator
-    def summ_count(self):
+    def summ_count(self) -> int or bool:
         try:
             summ = 0
             all_balance = balance_manager.read()
@@ -26,7 +26,7 @@ class User:
             return False
 
     @log_decorator
-    def add_balance(self):
+    def add_balance(self) -> bool:
         try:
             print(f'Your balance is {self.summ_count()}')
             balance: int = int(input("Enter balance: "))
@@ -53,3 +53,7 @@ class User:
     @log_decorator
     def history_product(self):
         print("Menu: Product History")
+
+    @log_decorator
+    def buy_product(self) -> bool:
+        pass

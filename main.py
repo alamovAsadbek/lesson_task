@@ -51,7 +51,8 @@ def show_user_menu():
 1. Add product to balance
 2. History balance
 3. History product
-4. Logout
+4. Buy product
+5. Logout
     '''
     print(text)
     try:
@@ -67,6 +68,9 @@ def show_user_menu():
             user.history_product()
             show_user_menu()
         elif user_menu == 4:
+            user.buy_product()
+            show_user_menu()
+        elif user_menu == 5:
             auth.logout()
             print("Logout Successful")
             show_auth()
