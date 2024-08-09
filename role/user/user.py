@@ -30,7 +30,9 @@ class User:
         try:
             print(f'Your balance is {self.summ_count()}')
             balance: int = int(input("Enter balance: "))
+            balance_id = balance_manager.random_id()
             data = {
+                'id': balance_id,
                 'balance': balance,
                 'phone_number': self.active_user['phone_number'],
                 'create_data': datetime.now().strftime("%d/%m/%Y %H:%M:%S").__str__()
