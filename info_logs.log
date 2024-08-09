@@ -1,1 +1,9 @@
-08/09/2024 17:20:30 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001FDAC488690>,) kwargs: {}, result: True executed successfully.
+08/09/2024 17:34:26 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001F809118B90>,) kwargs: {}, result: True executed successfully.
+08/09/2024 17:34:31 - main_files.decorator_func - INFO - Function login: args: (<main_files.auth.Auth object at 0x000001F809118B90>,) kwargs: {}, result: {'is_login': True, 'role': 'user'} executed successfully.
+08/09/2024 17:34:33 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001F809118B90>,) kwargs: {}, result: True executed successfully.
+08/09/2024 17:34:40 - main_files.decorator_func - INFO - Function login: args: (<main_files.auth.Auth object at 0x000001F809118B90>,) kwargs: {}, result: {'is_login': True, 'role': 'admin'} executed successfully.
+08/09/2024 17:35:18 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001F809118B90>,) kwargs: {}, result: True executed successfully.
+08/09/2024 17:35:28 - main_files.decorator_func - INFO - Function login: args: (<main_files.auth.Auth object at 0x000001F809118B90>,) kwargs: {}, result: {'is_login': True, 'role': 'user'} executed successfully.
+08/09/2024 17:35:33 - main_files.decorator_func - INFO - Function add_balance: args: (<role.user.user.User object at 0x000001F809118C10>,) kwargs: {}, result: None executed successfully.
+08/09/2024 17:35:37 - main_files.decorator_func - INFO - Function history_balance: args: (<role.user.user.User object at 0x000001F809118B50>,) kwargs: {}, result: None executed successfully.
+08/09/2024 17:35:39 - main_files.decorator_func - INFO - Function history_product: args: (<role.user.user.User object at 0x000001F809118BD0>,) kwargs: {}, result: None executed successfully.

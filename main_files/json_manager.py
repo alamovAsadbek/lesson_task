@@ -81,3 +81,4 @@ class JsonManager:
 
 
 user_manager = JsonManager(file_name='datas/users.json')
+balance_manager = JsonManager(file_name='datas/balance.json')

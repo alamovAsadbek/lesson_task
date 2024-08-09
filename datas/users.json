@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "id": 669,
+        "full_name": "A'lamov Asadbek",
+        "password": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c",
+        "confirm_password": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c",
+        "phone_number": 990690140,
+        "is_login": true
+    }
+]

@@ -1,5 +1,6 @@
 from main_files.auth import Auth
 from main_files.decorator_func import log_decorator
+from role.user.user import User
 
 
 @log_decorator
@@ -23,9 +24,9 @@ def show_auth():
             elif not login['is_login']:
                 show_auth()
             elif login['role'] == 'admin':
-                pass
+                show_admin_menu()
             elif login['role'] == 'user':
-                pass
+                show_user_menu()
             else:
                 print("Something went wrong")
                 show_auth()
@@ -50,16 +51,25 @@ def show_user_menu():
 1. Add product to balance
 2. History balance
 3. History product
+4. Logout
     '''
     print(text)
     try:
         user_menu = int(input("Choose menu number: "))
+        user = User()
         if user_menu == 1:
-            pass
+            user.add_balance()
+            show_user_menu()
         elif user_menu == 2:
-            pass
+            user.history_balance()
+            show_user_menu()
         elif user_menu == 3:
-            pass
+            user.history_product()
+            show_user_menu()
+        elif user_menu == 4:
+            auth.logout()
+            print("Logout Successful")
+            show_auth()
         else:
             print("Wrong menu number")
             show_user_menu()
@@ -74,6 +84,7 @@ def show_admin_menu():
 1. Pricing
 2. Show sold
 3. Show all users
+4. Logout
     '''
     print(text)
     try:
@@ -84,6 +95,10 @@ def show_admin_menu():
             pass
         elif user_menu == 3:
             pass
+        elif user_menu == 4:
+            auth.logout()
+            print("Logout Successful")
+            show_auth()
         else:
             print("Wrong menu number")
             show_admin_menu()

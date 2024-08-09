@@ -52,8 +52,8 @@ class Auth:
     def login(self) -> dict:
         try:
             all_users: list = user_manager.read()
-            phone_number: int = int(input('Enter phone number: ').strip())
-            password: str = hashlib.sha256(input('Enter password (+998 ): ').strip().encode('utf-8')).hexdigest()
+            phone_number: int = int(input('Enter phone number (+998 ): ').strip())
+            password: str = hashlib.sha256(input('Enter password: ').strip().encode('utf-8')).hexdigest()
             if phone_number.__str__() == self.__phone_number and hashlib.sha256(
                     self.__password.encode('utf-8')).hexdigest() == password:
                 print('Login successful')
