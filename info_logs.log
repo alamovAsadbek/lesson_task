@@ -1,3 +1,1 @@
-08/10/2024 18:04:54 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001A322188D90>,) kwargs: {}, result: True executed successfully.
-08/10/2024 18:05:00 - main_files.decorator_func - INFO - Function login: args: (<main_files.auth.Auth object at 0x000001A322188D90>,) kwargs: {}, result: {'is_login': True, 'role': 'admin'} executed successfully.
-08/10/2024 18:05:01 - main_files.decorator_func - INFO - Function show_sold: args: (<role.admin.admin.Admin object at 0x000001A322188D50>,) kwargs: {}, result: True executed successfully.
+08/10/2024 18:32:49 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001D34B96ABD0>,) kwargs: {}, result: True executed successfully.

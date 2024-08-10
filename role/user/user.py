@@ -156,3 +156,14 @@ class User:
     @log_decorator
     def buy_product(self) -> bool:
         pass
+
+    @log_decorator
+    def profile(self):
+        try:
+            print(f"Fullname: {self.active_user['full_name']}")
+            print(f"Phone number: {self.active_user['phone_number']}")
+            print(f"Balance: {self.summ_count()}")
+            return True
+        except Exception as e:
+            print(f'Error: {e}')
+            return False
