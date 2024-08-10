@@ -108,14 +108,50 @@ class User:
             return False
         print("Your balance is " + str(user_balance) + '\n')
         for balance in self.show_all_balance():
+            if balance['phone_number'] != self.active_user['phone_number']:
+                continue
             if balance is False:
                 print("Something went wrong")
                 return False
-            print(f"{count}.")
+            elif balance['balance'] > 1:
+                print(
+                    f"{count}. Status: Balance replenishment, Balance: {balance['balance']}, "
+                    f"Time: {balance['create_data']}")
+                count += 1
+            elif balance['balance'] < 1:
+                print(f"{count}. Status: Product purchased, Balance: {balance['balance'] * -1}, "
+                      f"Price: {balance['price']} UZS, Time: {balance['create_data']}")
+                count += 1
+            else:
+                print("Something went wrong")
+                return False
+        if count == 1:
+            print("Data not available")
+            return False
+        return True
 
     @log_decorator
     def history_product(self):
-        print("Menu: Product History")
+        user_balance: int = self.summ_count()
+        count = 1
+        if user_balance is False:
+            print("Something went wrong")
+            return False
+        print("Your balance is " + str(user_balance) + '\n')
+        for balance in self.show_all_balance():
+            if balance['phone_number'] != self.active_user['phone_number']:
+                continue
+            if balance is False:
+                print("Something went wrong")
+                return False
+            elif balance['balance'] < 1:
+                print(f"{count}. Status: Product purchased, Balance: {balance['balance'] * -1}, "
+                      f"Price: {balance['price']} UZS, Time: {balance['create_data']}")
+                count += 1
+        if count == 1:
+            print("Product not found")
+            return False
+        return True
 
     @log_decorator
     def buy_product(self) -> bool:

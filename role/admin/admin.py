@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from main_files.decorator_func import log_decorator
-from main_files.json_manager import product_manager
+from main_files.json_manager import product_manager, balance_manager
 
 
 class Admin:
@@ -53,3 +53,24 @@ class Admin:
         except Exception as e:
             print(f'Error: {e}')
             return False
+
+    @log_decorator
+    def show_sold(self) -> bool:
+        all_sold: list = balance_manager.read()
+        count: int = 1
+        if len(all_sold) == 0:
+            print("No sold yet")
+            return False
+        for sold in all_sold:
+            if sold['balance'] < 1:
+                print(f"{count}. User phone number: {sold['phone_number']},  Balance: {sold['balance'] * -1}, "
+                      f"Price: {sold['price']} UZS, Time: {sold['create_data']}")
+                count += 1
+        if count == 0:
+            print("No sold yet")
+            return False
+        return True
+
+    @log_decorator
+    def show_all_users(self):
+        pass

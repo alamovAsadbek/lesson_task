@@ -99,9 +99,11 @@ def show_admin_menu():
             admin.pricing()
             show_admin_menu()
         elif user_menu == 2:
-            pass
+            admin.show_sold()
+            show_admin_menu()
         elif user_menu == 3:
-            pass
+            admin.show_all_users()
+            show_admin_menu()
         elif user_menu == 4:
             auth.logout()
             print("Logout Successful")
