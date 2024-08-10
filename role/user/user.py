@@ -172,8 +172,8 @@ class User:
 
     @log_decorator
     def offer(self):
-        print("You can win our products by inviting your friend in this section. "
-              "To invite a friend, you need to enter their email address")
+        print('To invite a friend, you need to enter their email and enter the verification code sent to them')
+        print("For inviting a friend, you will be credited with 5 products")
         all_messages = message_manager.read()
         confirm_code = message_manager.random_id()
         to_email: str = input("Enter your friend's email: ")
@@ -190,3 +190,20 @@ class User:
             return True
         print("Sorry, we encountered an error")
         return False
+
+    @log_decorator
+    def my_invite(self) -> bool:
+        all_invites: list = message_manager.read()
+        count = 1
+        if len(all_invites) == 0:
+            print("No offers found")
+            return False
+        for invite in all_invites:
+            if invite['phone_number'] == self.active_user['phone_number']:
+                print(f"{count}. Balance: +5, Email: {invite['email']}, Data: {invite['create_data']}")
+                count += 1
+        if count == 1:
+            print("Your offer is not available")
+            return False
+        print(f"\nYour offer is available: {(count - 1) * 5}")
+        return True

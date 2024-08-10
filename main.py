@@ -74,8 +74,7 @@ def show_user_menu():
             user.buy_product()
             show_user_menu()
         elif user_menu == 5:
-            user.offer()
-            show_user_menu()
+            invite_menu()
         elif user_menu == 6:
             user.profile()
             show_user_menu()
@@ -125,6 +124,36 @@ def show_admin_menu():
     except Exception as e:
         print(f'Error: {e}')
         show_admin_menu()
+
+
+@log_decorator
+def invite_menu():
+    text = '''
+1. My invites
+2. Invite friend
+3. Back
+    '''
+    print(text)
+    try:
+        user = User()
+        user_menu = int(input("Choose menu number: "))
+        if user_menu == 1:
+            user.my_invite()
+            invite_menu()
+        elif user_menu == 2:
+            user.offer()
+            invite_menu()
+        elif user_menu == 3:
+            show_user_menu()
+        else:
+            print("Wrong menu number")
+            invite_menu()
+    except ValueError:
+        print("Wrong menu number")
+        invite_menu()
+    except Exception as e:
+        print(f'Error: {e}')
+        invite_menu()
 
 
 if __name__ == '__main__':

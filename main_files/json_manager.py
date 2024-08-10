@@ -86,4 +86,4 @@ class JsonManager:
 user_manager = JsonManager(file_name='datas/users.json')
 balance_manager = JsonManager(file_name='datas/balance.json')
 product_manager = JsonManager(file_name='datas/product.json')
-message_manager = JsonManager(file_name='datas/messages.json')
+message_manager = JsonManager(file_name='datas/invites.json')

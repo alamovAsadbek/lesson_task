@@ -4,7 +4,7 @@ import threading
 from datetime import datetime
 
 from main_files.decorator_func import log_decorator
-from main_files.json_manager import user_manager, message_manager
+from main_files.json_manager import user_manager, message_manager, balance_manager
 
 active_user = user_manager.get_active_user()
 from_email = "alamovasad@gmail.com"
@@ -53,7 +53,15 @@ def invite_friend(to_email: str, code: int) -> bool:
             'email': to_email,
             'create_data': datetime.now().strftime("%d/%m/%Y %H:%M:%S").__str__()
         }
-        if message_manager.append_data(data=message_data):
+        balance_id: int = balance_manager.random_id()
+        balance_data = {
+            'id': balance_id,
+            'balance': 5,
+            'phone_number': active_user['phone_number'],
+            'price': 0,
+            'create_data': datetime.now().strftime("%d/%m/%Y %H:%M:%S").__str__()
+        }
+        if message_manager.append_data(data=message_data) and balance_manager.append_data(data=balance_data):
             return True
         return False
     except smtplib.SMTPException as e:
