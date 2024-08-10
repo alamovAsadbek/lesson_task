@@ -21,7 +21,7 @@ class Admin:
                     continue
                 break
             ending: int = int(input("The ending: "))
-            price: int = int(input("The price: "))
+            price: int = int(input("The price (uzs): "))
             for product in all_product:
                 if product['beginning'] == beginning and product['ending'] == ending:
                     is_there = True

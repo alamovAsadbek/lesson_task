@@ -1,0 +1,6 @@
+08/10/2024 10:10:08 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x0000023F61B68D10>,) kwargs: {}, result: True executed successfully.
+08/10/2024 10:10:14 - main_files.decorator_func - INFO - Function login: args: (<main_files.auth.Auth object at 0x0000023F61B68D10>,) kwargs: {}, result: {'is_login': True, 'role': 'user'} executed successfully.
+08/10/2024 10:10:16 - main_files.decorator_func - INFO - Function show_product_price: args: (<role.user.user.User object at 0x0000023F61C17C90>,) kwargs: {}, result: <generator object User.show_product_price at 0x0000023F6164BAC0> executed successfully.
+08/10/2024 10:10:16 - main_files.decorator_func - INFO - Function summ_count: args: (<role.user.user.User object at 0x0000023F61C17C90>,) kwargs: {}, result: 21 executed successfully.
+08/10/2024 10:10:28 - main_files.decorator_func - INFO - Function balance_price: args: (<role.user.user.User object at 0x0000023F61C17C90>, 15) kwargs: {}, result: 990 executed successfully.
+08/10/2024 10:10:28 - main_files.decorator_func - INFO - Function add_balance: args: (<role.user.user.User object at 0x0000023F61C17C90>,) kwargs: {}, result: True executed successfully.

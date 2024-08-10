@@ -26,6 +26,37 @@ class User:
             return False
 
     @log_decorator
+    def show_product_price(self):
+        try:
+            all_products: list = product_manager.read()
+            count = 1
+            for product in all_products:
+                yield (f"{count}. The beginning: {product['beginning']},  The end: {product['ending']}, "
+                       f"Price: {product['price']} UZS")
+                count += 1
+            if count == 1:
+                print("Product not found")
+                yield False
+
+        except Exception as e:
+            print(f'Error: {e}')
+            return False
+
+    @log_decorator
+    def show_all_balance(self):
+        try:
+            all_balance = balance_manager.read()
+            for balance in all_balance:
+                if balance['phone_number'] == self.active_user['phone_number']:
+                    yield balance
+        except KeyError:
+            print("No balance found")
+            yield False
+        except Exception as e:
+            print(f'Error: {e}')
+            yield False
+
+    @log_decorator
     def balance_price(self, balance: int) -> int or bool:
         try:
             all_product = product_manager.read()
@@ -40,19 +71,27 @@ class User:
     @log_decorator
     def add_balance(self) -> bool:
         try:
-            print(f'Your balance is {self.summ_count()}')
+            for product in self.show_product_price():
+                if product is False:
+                    print("Something went wrong")
+                    return False
+                print(product)
+
+            print(f'\nYour balance is {self.summ_count()}\n')
             balance: int = int(input("Enter balance: "))
+            while balance < 1:
+                print("Number cannot be less than 1, Please try again.")
+                balance: int = int(input("Enter balance: "))
             balance_id: int = balance_manager.random_id()
-            product_price = self.balance_price(balance)
             data = {
                 'id': balance_id,
                 'balance': balance,
                 'phone_number': self.active_user['phone_number'],
-                'price': product_price,
+                'price': 0,
                 'create_data': datetime.now().strftime("%d/%m/%Y %H:%M:%S").__str__()
             }
             if balance_manager.append_data(data=data):
-                print(f'{balance} has been added to your balance')
+                print(f"You added {balance} to your balance")
                 return True
             print("Something went wrong")
             return False
@@ -62,7 +101,17 @@ class User:
 
     @log_decorator
     def history_balance(self):
-        print("Menu: History Balance")
+        user_balance: int = self.summ_count()
+        count = 1
+        if user_balance is False:
+            print("Something went wrong")
+            return False
+        print("Your balance is " + str(user_balance) + '\n')
+        for balance in self.show_all_balance():
+            if balance is False:
+                print("Something went wrong")
+                return False
+            print(f"{count}.")
 
     @log_decorator
     def history_product(self):
