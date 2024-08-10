@@ -1,7 +1,7 @@
 import json
 import os
 import random
-
+import threading
 if not os.path.exists('datas'):
     os.makedirs('datas')
 
@@ -10,18 +10,24 @@ class JsonManager:
     def __init__(self, file_name):
         self.file_name: str = file_name
 
+    # context manager
+    def open_file(self, mode: str):
+        file = open(self.file_name, mode)
+        yield file
+        file.close()
+
     def read(self) -> dict or bool:
         try:
-            with open(self.file_name, 'r') as file:
+            with self.open_file(mode='r') as file:
                 data = json.load(file)
                 return data
         except FileNotFoundError:
-            with open(self.file_name, 'w') as file:
+            with self.open_file(mode="w") as file:
                 json.dump([], file, indent=4)
                 return []
 
     def write(self, data) -> bool:
-        with open(self.file_name, 'w') as file:
+        with self.open_file(mode="w") as file:
             json.dump(data, file, indent=4)
             return True
 
