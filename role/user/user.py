@@ -1,12 +1,14 @@
 from datetime import datetime
 
 from main_files.decorator_func import log_decorator
-from main_files.json_manager import user_manager, balance_manager, product_manager
+from main_files.email_sender import invite_friend
+from main_files.json_manager import user_manager, balance_manager, product_manager, message_manager
 
 
 class User:
     def __init__(self):
         self.active_user = user_manager.get_active_user()
+        self.__admin_email = 'alamovasad@gmail.com'
 
     @log_decorator
     def summ_count(self) -> int or bool:
@@ -167,3 +169,24 @@ class User:
         except Exception as e:
             print(f'Error: {e}')
             return False
+
+    @log_decorator
+    def offer(self):
+        print("You can win our products by inviting your friend in this section. "
+              "To invite a friend, you need to enter their email address")
+        all_messages = message_manager.read()
+        confirm_code = message_manager.random_id()
+        to_email: str = input("Enter your friend's email: ")
+        if to_email == self.__admin_email:
+            print("This email is already is use")
+            return False
+        if len(all_messages) != 0:
+            for message in all_messages:
+                if to_email == message['email']:
+                    print("This email is already in use")
+                    return False
+        if invite_friend(to_email=to_email, code=confirm_code):
+            print("Thank you for inviting the friend")
+            return True
+        print("Sorry, we encountered an error")
+        return False

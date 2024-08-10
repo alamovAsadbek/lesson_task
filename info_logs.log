@@ -1,4 +1,5 @@
-08/10/2024 20:36:59 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001E38D8DABD0>,) kwargs: {}, result: True executed successfully.
-08/10/2024 20:37:07 - main_files.decorator_func - INFO - Function login: args: (<main_files.auth.Auth object at 0x000001E38D8DABD0>,) kwargs: {}, result: {'is_login': True, 'role': 'user'} executed successfully.
-08/10/2024 20:37:10 - main_files.decorator_func - INFO - Function summ_count: args: (<role.user.user.User object at 0x000001E38D8D8DD0>,) kwargs: {}, result: 20 executed successfully.
-08/10/2024 20:37:10 - main_files.decorator_func - INFO - Function profile: args: (<role.user.user.User object at 0x000001E38D8D8DD0>,) kwargs: {}, result: True executed successfully.
+08/10/2024 22:36:07 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001E234F08E10>,) kwargs: {}, result: True executed successfully.
+08/10/2024 22:36:14 - main_files.decorator_func - INFO - Function login: args: (<main_files.auth.Auth object at 0x000001E234F08E10>,) kwargs: {}, result: {'is_login': True, 'role': 'user'} executed successfully.
+08/10/2024 22:36:27 - main_files.decorator_func - INFO - Function send_email: args: ('alamovasad55@gmail.com', "Subject: Invite friend\n\nHello, your friend invited you to the A'lamov Asadbek water program. You must tell your friend the code to accept the offer. Your code is 1621") kwargs: {}, result: None executed successfully.
+08/10/2024 22:36:35 - main_files.decorator_func - INFO - Function invite_friend: args: () kwargs: {'to_email': 'alamovasad55@gmail.com', 'code': 1621}, result: True executed successfully.
+08/10/2024 22:36:35 - main_files.decorator_func - INFO - Function offer: args: (<role.user.user.User object at 0x000001E236AF7810>,) kwargs: {}, result: True executed successfully.
