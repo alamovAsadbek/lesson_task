@@ -14,5 +14,13 @@
         "confirm_password": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c",
         "phone_number": 990330952,
         "is_login": false
+    },
+    {
+        "id": 7577,
+        "full_name": "Asadbek",
+        "password": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c",
+        "confirm_password": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c",
+        "phone_number": 990690143,
+        "is_login": false
     }
 ]

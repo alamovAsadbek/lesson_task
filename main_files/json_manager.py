@@ -19,6 +19,9 @@ class JsonManager:
             with open(self.file_name, 'w') as file:
                 json.dump([], file, indent=4)
                 return []
+        except Exception as e:
+            print(f'Error: {e}')
+            return False
 
     def write(self, data) -> bool:
         with open(self.file_name, 'w') as file:
@@ -82,3 +85,5 @@ class JsonManager:
 
 user_manager = JsonManager(file_name='datas/users.json')
 balance_manager = JsonManager(file_name='datas/balance.json')
+product_manager = JsonManager(file_name='datas/product.json')
+message_manager = JsonManager(file_name='datas/invites.json')

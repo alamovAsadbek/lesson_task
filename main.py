@@ -1,5 +1,6 @@
 from main_files.auth import Auth
 from main_files.decorator_func import log_decorator
+from role.admin.admin import Admin
 from role.user.user import User
 
 
@@ -51,7 +52,10 @@ def show_user_menu():
 1. Add product to balance
 2. History balance
 3. History product
-4. Logout
+4. Buy product
+5. Invite friend
+6. Profile
+7. Logout
     '''
     print(text)
     try:
@@ -67,6 +71,14 @@ def show_user_menu():
             user.history_product()
             show_user_menu()
         elif user_menu == 4:
+            user.buy_product()
+            show_user_menu()
+        elif user_menu == 5:
+            invite_menu()
+        elif user_menu == 6:
+            user.profile()
+            show_user_menu()
+        elif user_menu == 7:
             auth.logout()
             print("Logout Successful")
             show_auth()
@@ -88,13 +100,17 @@ def show_admin_menu():
     '''
     print(text)
     try:
+        admin = Admin()
         user_menu = int(input("Choose menu number: "))
         if user_menu == 1:
-            pass
+            admin.pricing()
+            show_admin_menu()
         elif user_menu == 2:
-            pass
+            admin.show_sold()
+            show_admin_menu()
         elif user_menu == 3:
-            pass
+            admin.show_all_users()
+            show_admin_menu()
         elif user_menu == 4:
             auth.logout()
             print("Logout Successful")
@@ -108,6 +124,36 @@ def show_admin_menu():
     except Exception as e:
         print(f'Error: {e}')
         show_admin_menu()
+
+
+@log_decorator
+def invite_menu():
+    text = '''
+1. My invites
+2. Invite friend
+3. Back
+    '''
+    print(text)
+    try:
+        user = User()
+        user_menu = int(input("Choose menu number: "))
+        if user_menu == 1:
+            user.my_invite()
+            invite_menu()
+        elif user_menu == 2:
+            user.offer()
+            invite_menu()
+        elif user_menu == 3:
+            show_user_menu()
+        else:
+            print("Wrong menu number")
+            invite_menu()
+    except ValueError:
+        print("Wrong menu number")
+        invite_menu()
+    except Exception as e:
+        print(f'Error: {e}')
+        invite_menu()
 
 
 if __name__ == '__main__':
