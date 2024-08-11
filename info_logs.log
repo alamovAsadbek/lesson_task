@@ -1,1 +1,18 @@
-08/10/2024 22:57:00 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x00000164BF1D8FD0>,) kwargs: {}, result: True executed successfully.
+08/11/2024 10:19:55 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000002190AB78FD0>,) kwargs: {}, result: True executed successfully.
+08/11/2024 10:20:01 - main_files.decorator_func - INFO - Function login: args: (<main_files.auth.Auth object at 0x000002190AB78FD0>,) kwargs: {}, result: {'is_login': True, 'role': 'user'} executed successfully.
+08/11/2024 10:20:04 - main_files.decorator_func - INFO - Function summ_count: args: (<role.user.user.User object at 0x000002190C78BFD0>,) kwargs: {}, result: 0 executed successfully.
+08/11/2024 10:20:04 - main_files.decorator_func - INFO - Function show_all_balance: args: (<role.user.user.User object at 0x000002190C78BFD0>,) kwargs: {}, result: <generator object User.show_all_balance at 0x000002190C7065C0> executed successfully.
+08/11/2024 10:20:04 - main_files.decorator_func - INFO - Function history_balance: args: (<role.user.user.User object at 0x000002190C78BFD0>,) kwargs: {}, result: False executed successfully.
+08/11/2024 10:20:10 - main_files.decorator_func - INFO - Function summ_count: args: (<role.user.user.User object at 0x000002190C78B750>,) kwargs: {}, result: 0 executed successfully.
+08/11/2024 10:20:10 - main_files.decorator_func - INFO - Function show_all_balance: args: (<role.user.user.User object at 0x000002190C78B750>,) kwargs: {}, result: <generator object User.show_all_balance at 0x000002190C7065C0> executed successfully.
+08/11/2024 10:20:10 - main_files.decorator_func - INFO - Function history_product: args: (<role.user.user.User object at 0x000002190C78B750>,) kwargs: {}, result: False executed successfully.
+08/11/2024 10:20:14 - main_files.decorator_func - INFO - Function buy_product: args: (<role.user.user.User object at 0x000002190A679810>,) kwargs: {}, result: None executed successfully.
+08/11/2024 10:20:25 - main_files.decorator_func - INFO - Function summ_count: args: (<role.user.user.User object at 0x000002190C789950>,) kwargs: {}, result: 0 executed successfully.
+08/11/2024 10:20:25 - main_files.decorator_func - INFO - Function profile: args: (<role.user.user.User object at 0x000002190C789950>,) kwargs: {}, result: True executed successfully.
+08/11/2024 10:20:34 - main_files.decorator_func - INFO - Function my_invite: args: (<role.user.user.User object at 0x000002190C675D10>,) kwargs: {}, result: False executed successfully.
+08/11/2024 10:20:43 - main_files.decorator_func - INFO - Function offer: args: (<role.user.user.User object at 0x000002190C7A01D0>,) kwargs: {}, result: False executed successfully.
+08/11/2024 10:20:55 - main_files.decorator_func - INFO - Function show_product_price: args: (<role.user.user.User object at 0x000002190C812C10>,) kwargs: {}, result: <generator object User.show_product_price at 0x000002190ABB5C60> executed successfully.
+08/11/2024 10:20:55 - main_files.decorator_func - INFO - Function summ_count: args: (<role.user.user.User object at 0x000002190C812C10>,) kwargs: {}, result: 0 executed successfully.
+08/11/2024 10:20:59 - main_files.decorator_func - INFO - Function add_balance: args: (<role.user.user.User object at 0x000002190C812C10>,) kwargs: {}, result: True executed successfully.
+08/11/2024 10:21:04 - main_files.decorator_func - INFO - Function summ_count: args: (<role.user.user.User object at 0x000002190C7B97D0>,) kwargs: {}, result: 20 executed successfully.
+08/11/2024 10:21:04 - main_files.decorator_func - INFO - Function profile: args: (<role.user.user.User object at 0x000002190C7B97D0>,) kwargs: {}, result: True executed successfully.
