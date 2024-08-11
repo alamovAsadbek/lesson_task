@@ -1,3 +1,3 @@
-08/11/2024 17:19:43 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001499E3ABC90>,) kwargs: {}, result: True executed successfully.
-08/11/2024 17:19:45 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001499E3ABC90>,) kwargs: {}, result: True executed successfully.
-08/11/2024 17:19:45 - main_files.decorator_func - INFO - Function show_auth: args: () kwargs: {}, result: None executed successfully.
+08/11/2024 17:51:43 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001F931CFFC50>,) kwargs: {}, result: True executed successfully.
+08/11/2024 17:51:44 - main_files.decorator_func - INFO - Function logout: args: (<main_files.auth.Auth object at 0x000001F931CFFC50>,) kwargs: {}, result: True executed successfully.
+08/11/2024 17:51:44 - main_files.decorator_func - INFO - Function show_auth: args: () kwargs: {}, result: None executed successfully.
