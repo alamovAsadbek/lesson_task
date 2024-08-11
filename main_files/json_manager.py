@@ -79,7 +79,7 @@ class JsonManager:
                         break
                 return random_number
         except Exception as e:
-            print(f'Error: {e}')
+            print(f'Error asad: {e}')
             return False
 
 

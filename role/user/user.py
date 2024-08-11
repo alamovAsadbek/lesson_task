@@ -159,6 +159,11 @@ class User:
     def buy_product(self) -> bool:
         try:
             products = list(self.show_product_price())
+            for product in self.show_product_price():
+                if product is False:
+                    print("Something went wrong")
+                    return False
+                print(product)
             if not products or products[0] is False:
                 print("No products available for purchase.")
                 return False
@@ -167,39 +172,30 @@ class User:
             if user_balance is False:
                 print("Unable to retrieve balance.")
                 return False
-            print(f"\nYour current balance is {user_balance} UZS.\n")
+            print(f"\nYour current balance is {user_balance}\n")
             product_choice = int(input("Enter the number of the product you want to buy: "))
-            if product_choice < 1 or product_choice > len(products):
+            if product_choice < 1 or user_balance < product_choice:
                 print("Invalid product choice.")
                 return False
 
-            selected_product = products[product_choice - 1]
-            product_price = int(selected_product.split("Price: ")[1].split(" UZS")[0])
-
-            if user_balance < product_price:
-                print(f"Insufficient balance to purchase the product. Required: {product_price} UZS, Available: {user_balance} UZS.")
-                return False
-
-            new_balance = user_balance - product_price
-            balance_id = balance_manager.random_id()
+            product_price = self.balance_price(product_choice)
+            data_id: int = balance_manager.random_id()
             balance_data = {
-                'id': balance_id,
-                'balance': -product_price,  
+                'id': data_id,
+                'balance': -product_choice,
                 'phone_number': self.active_user['phone_number'],
                 'price': product_price,
-                'create_data': datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                'create_data': datetime.now().strftime("%d/%m/%Y %H:%M:%S").__str__()
             }
             if not balance_manager.append_data(data=balance_data):
                 print("Failed to update balance. Purchase unsuccessful.")
                 return False
-
-            print(f"Successfully purchased the product. Your new balance is {new_balance} UZS.")
+            print(f"You bought {product_choice} products for {product_price} UZS")
+            print(f"Successfully purchased the product. Your new balance is {self.summ_count()}")
             return True
-
         except Exception as e:
             print(f'Error: {e}')
             return False
-
 
     @log_decorator
     def profile(self):
